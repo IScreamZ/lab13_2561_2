@@ -20,4 +20,34 @@ int main(){
 	return 0;
 }
 
+void inputMatrix(double X[][N]){
+	for(int k=0; k<N ;k++){
+		cout<<"Row "<<k+1<<": ";
+		for(int x =0;x<N;x++){
+			cin>>X[k][x];
+		}
+	}
+}
+
+void showMatrix(const bool X[][N]){
+	for(int k=0; k<N ;k++){
+		for(int x =0;x<N;x++){
+			cout<<X[k][x]<<" ";
+		}
+		cout<<"\n";
+	}
+}
+
+void findLocalMax(const double a[][N], bool b[][N]){
+	for(int k=0; k<N ;k++){
+		for(int x =0;x<N;x++){
+		b[k][x]=false;
+		}
+	}
+	for(int k=1; k<N-1 ;k++){
+		for(int x =1;x<N-1;x++){
+			if(a[k][x]>=a[k][x-1]&&a[k][x]>=a[k+1][x]&&a[k][x]>=a[k][x+1]&&a[k][x]>=a[k-1][x]) b[k][x]=true;
+		}
+	}
+}
 // Write definition of inputMatrix(),matrixMultiply() and showMatrix() here
